@@ -35,3 +35,12 @@ Currently unable to find a service of this kind. Some websites allow the user to
 # Target Market 
 All online secondhand shoppers. The secondhand market is growing at a rapid rate, with target markets mainly residing in North America, Europe, and Asia. 
 A good resource I found that goes over the growth of this market is discussed in this article: https://www.thredup.com/resale/#size-and-impact
+
+# Architecture
+Looking to implement the following:
+
+1) Simple front end - takes in user requests specified above. We can start with CLI to make it easy.
+2) Needs a database that stores this information per user. Schemas to be defined, written in SQL. 
+3) A formatted list of all websites we want to look at. This could be in the database or written in a YAML file. 
+4) A webscaping service that searches the ads we want. 
+5) A method of communicating these ads to the user. Thinking about email format.
