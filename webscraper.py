@@ -4,9 +4,9 @@ import argparse
 
 def scrape_used_clothing(keywords, size, brand, shoe_size, price):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}
-    URL = "https://www.grailed.com/?"
+    URL = "https://www.grailed.com"
     params = {'keywords': keywords, 'size': size, 'brand': brand, 'shoe_size': shoe_size, 'price': price}
-    r = requests.get(URL, params=params, headers=headers)
+    r = requests.get(URL)#, params=params, headers=headers)
     soup = BeautifulSoup(r.text, 'html.parser')
     results = []
     for item in soup.find_all('div', class_='item'):
@@ -37,6 +37,8 @@ def main():
     price = args.price
 
     # You can now use the extracted arguments in your code
+    results = scrape_used_clothing(keywords, size, brand, shoe_size, price)
+    print(results)
 
 if __name__ == '__main__':
-    main() # ex: python script.py --keywords keywords --size size --brand brand --shoe_size shoe_size --price price
+    main() # ex: python webscraper.py --keywords mens --size small --brand nike --shoe_size 7.5 --price 100
