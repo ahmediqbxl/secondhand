@@ -1,3 +1,5 @@
+""" Attempt at using BeautifulSoup to parse websites with specific keywords. Some troubles in getting access to specific websites."""
+
 import requests
 from bs4 import BeautifulSoup
 import argparse
