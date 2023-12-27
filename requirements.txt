@@ -7,3 +7,4 @@ requests==2.28.2
 schedule==1.1.0
 soupsieve==2.3.2.post1
 urllib3==1.26.14
+security~=1.2.0

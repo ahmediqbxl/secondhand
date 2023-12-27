@@ -2,8 +2,8 @@
 
 import json
 from urllib.error import HTTPError
-import requests
 from bs4 import BeautifulSoup
+from security import safe_requests
 
 class GPSE():
     def __init__(self, args) -> None:
@@ -12,7 +12,7 @@ class GPSE():
     def get_requests(self):
         try: 
             URL = "https://poshmark.ca/"
-            response = requests.get(URL, params={})
+            response = safe_requests.get(URL, params={})
             print(response.status_code)
         # If the response was successful, no Exception will be raised
             response.raise_for_status()
@@ -31,7 +31,7 @@ class GPSE():
         query = self.args.keywords
 
         # Send the GET request
-        response = requests.get(endpoint, params={'q': query})
+        response = safe_requests.get(endpoint, params={'q': query})
 
         # Check the status code of the response
         if response.status_code == 200:
@@ -55,7 +55,7 @@ class GPSE():
         }
 
         # Send the GET request
-        response = requests.get(endpoint, params=params)
+        response = safe_requests.get(endpoint, params=params)
 
         # Check the status code of the response
         if response.status_code == 200:
